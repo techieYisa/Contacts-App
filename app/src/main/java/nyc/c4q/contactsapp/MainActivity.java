@@ -6,16 +6,25 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.qbusict.cupboard.Cupboard;
 import nyc.c4q.contactsapp.Interface.UserService;
 import nyc.c4q.contactsapp.Remote.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static nl.qbusict.cupboard.CupboardFactory.cupboard;
+
 public class MainActivity extends AppCompatActivity {
 
     private UserService userService;
     List<User> userList= new ArrayList<>();
+
+    //User_Schema user_DB = cupboard().withDatabase()
+
+    //TODO: Instantiate database to be used in cupboard.
+    //TODO: Put data from retrofit call into DB.
+    //TODO: Create method if database is != null use data from database
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

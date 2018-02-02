@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
+
 /**
  * Created by bobbybah on 1/30/18.
  */
@@ -20,10 +21,10 @@ public class User_Database extends SQLiteOpenHelper {
     }
 
 
-//    static {
-//         register our models
-//        cupboard().register(User.class);
-//    }
+    static {
+         //registering our models into the database
+        cupboard().register(User_Schema.class);
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
         cupboard().withDatabase(db).createTables();

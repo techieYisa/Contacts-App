@@ -9,7 +9,9 @@ public class User_Schema {
     public User_Schema(){
 
          this.name = new PersonName();
-
+         this.email = "noEmail";
+         this.cell = "noCell";
+         this.picture = new PersonPicture();
     }
 
 
