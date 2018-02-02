@@ -1,5 +1,6 @@
 package nyc.c4q.contactsapp;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -20,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private UserService userService;
     List<User> userList= new ArrayList<>();
 
+
     //User_Schema user_DB = cupboard().withDatabase()
 
     //TODO: Instantiate database to be used in cupboard.
     //TODO: Put data from retrofit call into DB.
-    //TODO: Create method if database is != null use data from database
+    //TODO: Create method if database is != null use data from database instead of retrofit call
+    //TODO: Create a user details activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
