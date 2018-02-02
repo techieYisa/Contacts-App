@@ -12,6 +12,7 @@
         android:layout_height="150dp" />
 
     <TextView
+        android:id="@+id/userinfo_textview"
         android:layout_width="match_parent"
         android:layout_height="60dp" />
     
