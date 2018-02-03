@@ -17,6 +17,8 @@ import nl.qbusict.cupboard.QueryResultIterable;
 import nyc.c4q.contactsapp.Interface.UserService;
 import nyc.c4q.contactsapp.Remote.RetrofitClient;
 import nyc.c4q.contactsapp.adapter.UserAdapter;
+import nyc.c4q.contactsapp.model.PersonName;
+import nyc.c4q.contactsapp.model.PersonPicture;
 import nyc.c4q.contactsapp.model.User_Schema;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         User_Database userHelper= User_Database.getInstance(this);
         user_db = userHelper.getWritableDatabase();
 
-//        long id = cupboard().withDatabase(user_db.getReadableDatabase()).put(user);
+//        User_Schema user = new User_Schema();
+//        long id = cupboard().withDatabase(user_db).put(user);
         final RecyclerView contactRecyclerView = findViewById(R.id.user_recyclerview);
         UserAdapter userAdapter = new UserAdapter(userList, context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),
@@ -67,7 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
                 userList = object.getResults();
                 for (int i= 0; i < userList.size(); i ++) {
-                    addUser(userList.get(i));
+                    User_Schema user = new User_Schema();
+                    user= userList.get(i);
+                    long id = cupboard().withDatabase(user_db).put(user);
+//                    addUser(userList.get(i).getName().getFirst(),userList.get(i).getEmail(), userList.get(i).getPicture().getThumbnail(), userList.get(i).getCell());
                 }
                 contactRecyclerView.setAdapter(new UserAdapter(selectAllUser(), context));
               Log.d(TAG, "onResponse " + userList);
@@ -81,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void addUser(String name, String email, String picture, String cell) {
+        cupboard().withDatabase(user_db).put(name, email, picture, cell);
     }
 
     private void addUser(User_Schema user) {
