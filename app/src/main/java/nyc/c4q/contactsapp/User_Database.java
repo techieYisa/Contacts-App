@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import nyc.c4q.contactsapp.model.PersonName;
+import nyc.c4q.contactsapp.model.PersonPicture;
 import nyc.c4q.contactsapp.model.User_Schema;
 
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
@@ -36,9 +38,12 @@ public class User_Database extends SQLiteOpenHelper {
     static {
          //registering our models into the database
         cupboard().register(User_Schema.class);
+        cupboard().register(PersonName.class);
+        cupboard().register(PersonPicture.class);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         cupboard().withDatabase(db).createTables();
 
     }
