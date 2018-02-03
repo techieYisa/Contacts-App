@@ -44,21 +44,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView contactRecyclerView = (RecyclerView) findViewById(R.id.user_recyclerview);
+        final RecyclerView contactRecyclerView = findViewById(R.id.user_recyclerview);
         UserAdapter userAdapter = new UserAdapter(userList, context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false);
         contactRecyclerView.setAdapter(userAdapter);
         contactRecyclerView.setLayoutManager(linearLayoutManager);
 
-        userService= RetrofitClient.getRetrofit("https://randomuser.me/").create(UserService.class);
+        userService= RetrofitClient.getRetrofit("https://randomuser.me/")
+                .create(UserService.class);
         userService.getUserList().enqueue(new Callback <ArrayObject>() {
+
+
             @Override
             public void onResponse(Call<ArrayObject> call, Response<ArrayObject> response) {
                 ArrayObject object= response.body();
-                userList = object.getResults();
 
-                Log.d(TAG, "onResponse " + userList);
+                userList = object.getResults();
+                contactRecyclerView.setAdapter(new UserAdapter(userList, context));
+              Log.d(TAG, "onResponse " + userList);
+
             }
 
             @Override
@@ -68,9 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
 
     }
 }
