@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import nyc.c4q.contactsapp.R;
-import nyc.c4q.contactsapp.User;
+import nyc.c4q.contactsapp.model.User_Schema;
 import nyc.c4q.contactsapp.view.UserViewHolder;
 
 /**
@@ -20,10 +20,10 @@ import nyc.c4q.contactsapp.view.UserViewHolder;
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     Context context;
-    List<User> userList;
+    List<User_Schema> userList;
 
 
-    public UserAdapter(List<User> userList, Context context) {
+    public UserAdapter(List <User_Schema> userList, Context context) {
         this.userList = userList;
         this.context = context;
     }
@@ -37,7 +37,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(final UserViewHolder holder, final int position) {
-        User user = userList.get(position);
+        User_Schema user = userList.get(position);
         holder.onBind(user, context);
 
         Picasso.with(context)
