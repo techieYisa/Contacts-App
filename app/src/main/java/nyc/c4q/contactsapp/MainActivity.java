@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +25,14 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "HELP!!";
     private UserService userService;
     List<User> userList= new ArrayList<>();
     Context context;
 
-
-    //User_Schema user_DB = cupboard().withDatabase()
+    User_Database user_db = new User_Database(this);
+    User_Schema user = new User_Schema();
+    long id = cupboard().withDatabase(user_db.getReadableDatabase()).put(user);
 
     //TODO: Instantiate database to be used in cupboard.
     //TODO: Put data from retrofit call into DB.
@@ -56,12 +59,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayObject> call, Response<ArrayObject> response) {
                 ArrayObject object= response.body();
-                userList=object.getResults();
+
+                userList = object.getResults();
                 contactRecyclerView.setAdapter(new UserAdapter(userList, context));
+              Log.d(TAG, "onResponse " + userList);
+
             }
 
             @Override
             public void onFailure(Call <ArrayObject> call, Throwable t) {
+
+                Log.d(TAG, "onFailure " );
 
             }
         });
