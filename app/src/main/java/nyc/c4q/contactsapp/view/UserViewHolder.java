@@ -6,10 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import nyc.c4q.contactsapp.R;
-import nyc.c4q.contactsapp.User;
+import nyc.c4q.contactsapp.model.User_Schema;
 
 /**
  * Created by c4q on 2/2/18.
@@ -25,7 +23,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         userName = itemView.findViewById(R.id.userinfo_textview);
         userPic = itemView.findViewById(R.id.user_imageview);
     }
-    public void onBind(User user, Context context){
+    public void onBind(User_Schema user, Context context){
         String fullName = user.getName().getTitle();
         StringBuilder sb = new StringBuilder(fullName);
         sb.append(" ").append(user.getName().getFirst());

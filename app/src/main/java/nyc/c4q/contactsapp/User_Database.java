@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import nyc.c4q.contactsapp.model.User_Schema;
+
 import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 
@@ -15,6 +17,16 @@ public class User_Database extends SQLiteOpenHelper {
 
     private static final String DATABASENAME = "User.db";
     private static final int DATABASE_VERSION =1;
+
+    private static User_Database instance;
+
+
+    public static synchronized User_Database getInstance(Context context){
+        if (instance == null) {
+            instance = new User_Database(context.getApplicationContext());
+        }
+        return instance;
+    }
 
     public User_Database(Context context) {
         super(context, DATABASENAME, null, DATABASE_VERSION);
