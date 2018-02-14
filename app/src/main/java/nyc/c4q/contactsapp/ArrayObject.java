@@ -9,9 +9,8 @@ import nyc.c4q.contactsapp.model.User_Schema;
  */
 
 public class ArrayObject {
-    private List<User_Schema> results;
-
-    public List <User_Schema> getResults() {
+    private List<User> results;
+    public List <User> getResults() {
         return results;
     }
 }

@@ -12,6 +12,14 @@ public class User {
     private String cell;
     private PersonPicture picture;
 
+    public User(PersonName name, PersonAddress location, String email, String cell, PersonPicture picture) {
+        this.name = name;
+        this.location = location;
+        this.email = email;
+        this.cell = cell;
+        this.picture = picture;
+    }
+
     public String getEmail() {
         return email;
     }
