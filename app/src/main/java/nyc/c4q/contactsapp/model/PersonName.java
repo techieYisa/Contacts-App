@@ -5,9 +5,14 @@ package nyc.c4q.contactsapp.model;
  */
 
 public class PersonName {
+    private long _id;
     public String title;
     public String first;
     public String last;
+
+    public long get_id() {
+        return _id;
+    }
 
     public String getTitle() {
         return title;

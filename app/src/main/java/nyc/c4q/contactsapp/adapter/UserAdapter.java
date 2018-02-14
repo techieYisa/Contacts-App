@@ -11,6 +11,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import nyc.c4q.contactsapp.R;
+import nyc.c4q.contactsapp.User;
+import nyc.c4q.contactsapp.UserDatabase;
 import nyc.c4q.contactsapp.model.User_Schema;
 import nyc.c4q.contactsapp.view.UserViewHolder;
 
@@ -19,34 +21,22 @@ import nyc.c4q.contactsapp.view.UserViewHolder;
  */
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
-    Context context;
-    List<User_Schema> userList;
 
+    List<UserDatabase> userList;
 
-    public UserAdapter(List <User_Schema> userList, Context context) {
+    public UserAdapter(List <UserDatabase> userList) {
         this.userList = userList;
-        this.context = context;
     }
 
     @Override
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View childView = LayoutInflater.from(parent.getContext()).inflate(R.layout.contacts_item_view, parent, false);
-        context = parent.getContext();
         return new UserViewHolder(childView);
     }
 
     @Override
     public void onBindViewHolder(final UserViewHolder holder, final int position) {
-        User_Schema user = userList.get(position);
-        holder.onBind(user, context);
-
-        Picasso.with(context)
-                .load(user.getPicture()
-                        .getThumbnail())
-                .centerInside()
-                .resize(500, 500)
-                .into(holder.userPic);
-
+       holder.onBind(userList.get(position));
     }
 
     @Override
