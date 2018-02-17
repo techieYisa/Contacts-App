@@ -1,4 +1,4 @@
-package nyc.c4q.contactsapp;
+package nyc.c4q.contactsapp.model;
 
 /**
  * Created by yokilam on 1/24/18.

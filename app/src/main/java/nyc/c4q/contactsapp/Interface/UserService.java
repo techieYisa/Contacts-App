@@ -1,6 +1,6 @@
 package nyc.c4q.contactsapp.Interface;
 
-import nyc.c4q.contactsapp.ArrayObject;
+import nyc.c4q.contactsapp.model.ArrayObject;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

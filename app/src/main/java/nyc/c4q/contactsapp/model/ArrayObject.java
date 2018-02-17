@@ -1,8 +1,8 @@
-package nyc.c4q.contactsapp;
+package nyc.c4q.contactsapp.model;
 
 import java.util.List;
 
-import nyc.c4q.contactsapp.model.User_Schema;
+import nyc.c4q.contactsapp.model.User;
 
 /**
  * Created by yokilam on 1/24/18.
