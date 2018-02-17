@@ -7,9 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
+
+import nyc.c4q.contactsapp.model.User;
+import nyc.c4q.contactsapp.model.UserDatabase;
 
 import static android.content.ContentValues.TAG;
 

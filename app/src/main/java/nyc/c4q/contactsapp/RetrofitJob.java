@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import nyc.c4q.contactsapp.Interface.UserService;
 import nyc.c4q.contactsapp.Remote.RetrofitClient;
-import nyc.c4q.contactsapp.adapter.UserAdapter;
+import nyc.c4q.contactsapp.model.ArrayObject;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

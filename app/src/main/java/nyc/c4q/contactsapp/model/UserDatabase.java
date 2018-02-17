@@ -1,10 +1,12 @@
-package nyc.c4q.contactsapp;
+package nyc.c4q.contactsapp.model;
+
+import java.io.Serializable;
 
 /**
  * Created by yokilam on 2/14/18.
  */
 
-public class UserDatabase {
+public class UserDatabase implements Serializable {
     private String FirstName;
     private String LastName;
     private String Email;
